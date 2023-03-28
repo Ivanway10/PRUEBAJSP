@@ -28,7 +28,15 @@ public class ControladoraPersistencia {
             Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+    public void editarPersona(Persona pers){
+        try {
+            persJPA.edit(pers);
+        } catch (NonexistentEntityException ex) {
+            Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     public void eliminarPersona(Persona pers){
         try {
             persJPA.destroy(pers.getId());
@@ -39,5 +47,9 @@ public class ControladoraPersistencia {
     
     public List<Persona> traerPersonas() {
         return persJPA.findPersonaEntities();
+    }
+
+    public Persona traerPersona(int id) {
+        return persJPA.findPersona(id);
     }
 }

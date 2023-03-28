@@ -20,6 +20,12 @@ public class Controladora {
     public void eliminarPersona(Persona pers){
         controlPersis.eliminarPersona(pers);
     }
+    public void editarPersona(Persona pers) {
+        controlPersis.editarPersona(pers);
+    }
+    public Persona traerPersona(int id){
+        return controlPersis.traerPersona(id);
+    }
     public List<Persona> traerPersonas(){
         return controlPersis.traerPersonas();
     }

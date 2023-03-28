@@ -33,6 +33,12 @@
         <form action="SvEliminar" method="POST">
             <p><label>Id: </label> <input type="text" name="id_eliminar"></p>
             <button type="submit">Eliminar</button>
+            
+        <h1>Editar Personas</h1>
+        <p>Ingrese la id de la persona a modificar</p>
+        <form action="SvEditar" method="GET">
+            <p><label>Id: </label> <input type="number" name="id_buscar"></p>
+            <button type="submit">Buscar</button>
         </form>
         
         <!-- <div class="banner">
