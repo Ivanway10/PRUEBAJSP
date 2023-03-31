@@ -29,7 +29,8 @@ public class SvEditar extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        
+       
+        /*
         int id = Integer.parseInt (request.getParameter("id_buscar"));
         
         Persona pers = control.traerPersona(id);
@@ -44,7 +45,7 @@ public class SvEditar extends HttpServlet {
             response.sendRedirect("editarPersona.jsp");
         } catch (IOException e){
         response.sendRedirect("index.htm");    
-        }
+        }*/
     }
 
    

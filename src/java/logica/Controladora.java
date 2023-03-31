@@ -23,9 +23,14 @@ public class Controladora {
     public void editarPersona(Persona pers) {
         controlPersis.editarPersona(pers);
     }
+    public void traerPersona(int id){
+        controlPersis.traerPersona(id);
+    }
+    /*
     public Persona traerPersona(int id){
         return controlPersis.traerPersona(id);
     }
+*/
     public List<Persona> traerPersonas(){
         return controlPersis.traerPersonas();
     }
