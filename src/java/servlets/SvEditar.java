@@ -5,6 +5,7 @@
 package servlets;
 
 import java.io.IOException;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -30,22 +31,13 @@ public class SvEditar extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
        
-        /*
-        int id = Integer.parseInt (request.getParameter("id_buscar"));
+      List<Persona> listaPersonas = control.traerPersonas();
         
-        Persona pers = control.traerPersona(id);
-        HttpSession miSesion = request.getSession();
-        try {
-            miSesion.setAttribute("id", pers.getId());
-            miSesion.setAttribute("dni", pers.getDni());
-            miSesion.setAttribute("nombre", pers.getNombre());
-            miSesion.setAttribute("apellido", pers.getApellido());
-            miSesion.setAttribute("telefono", pers.getTelefono());
-            
-            response.sendRedirect("editarPersona.jsp");
-        } catch (IOException e){
-        response.sendRedirect("index.htm");    
-        }*/
+        HttpSession miSession = request.getSession();
+        miSession.setAttribute("listaPersonas", listaPersonas );
+        
+        response.sendRedirect("editarPersonas.htm");
+        
     }
 
    
@@ -54,13 +46,12 @@ public class SvEditar extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);  
         
-        int id = Integer.parseInt(request.getParameter("id"));
         String dni = request.getParameter("dni");
         String nombre = request.getParameter("nombre");
         String apellido = request.getParameter("apellido");
         String telefono = request.getParameter("telefono");
         
-        Persona pers = new Persona(id , dni, nombre, apellido, telefono);
+        Persona pers = new Persona(0 , dni, nombre, apellido, telefono);
         control.editarPersona(pers);
         
         response.sendRedirect("index.htm");

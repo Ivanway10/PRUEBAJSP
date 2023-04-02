@@ -31,12 +31,12 @@ public class SvEliminar extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        
 
         int id_eliminar = Integer.parseInt (request.getParameter("id_eliminar"));
         control.eliminarPersona(id_eliminar);
         
         response.sendRedirect("index.htm");
-
 
     }
 
